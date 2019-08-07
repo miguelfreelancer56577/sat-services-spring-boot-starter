@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.github.mangelt.sat.services.exception.BlobConfigurationException;
+import com.github.mangelt.sat.services.util.ConfigConstant;
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
@@ -29,8 +30,6 @@ import com.microsoft.azure.storage.blob.CloudBlobContainer;
 public class BlobConfiguration
 {
 
-	protected static final String defult = "defult";
-	
 	@Value("${azure.storage.connection-string:defult}")
 	protected String StorageConnectionString;
 
@@ -49,7 +48,7 @@ public class BlobConfiguration
 	protected CloudBlobClient getCloudBlobClientInstance() throws BlobConfigurationException
 	{
 		try {
-			if(defult.equals(this.StorageConnectionString)){
+			if(ConfigConstant.defultProperty.equals(this.StorageConnectionString)){
 				log.info("There is no connection string to get a client bean {}.", "getCloudBlobClientInstance");
 //				return a null value for this bean 
 				return null;

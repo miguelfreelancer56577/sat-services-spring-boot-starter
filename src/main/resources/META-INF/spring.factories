@@ -1,1 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.github.mangelt.sat.services.config.BlobConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.mangelt.sat.services.config.BlobConfiguration,\
+com.github.mangelt.sat.services.config.CosmosConfiguration
