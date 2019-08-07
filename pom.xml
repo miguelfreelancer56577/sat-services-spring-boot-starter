@@ -6,7 +6,7 @@
 
   <groupId>com.github.mangelt</groupId>
   <artifactId>sat-services-spring-boot-starter</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
   
   <parent>
