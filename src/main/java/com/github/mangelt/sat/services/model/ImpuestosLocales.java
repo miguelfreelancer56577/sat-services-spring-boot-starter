@@ -11,6 +11,7 @@ package com.github.mangelt.sat.services.model;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -19,6 +20,8 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 /**
@@ -75,6 +78,7 @@ import javax.xml.bind.annotation.XmlType;
     "retencionesLocalesOrTrasladosLocales"
 })
 @XmlRootElement(name = "ImpuestosLocales", namespace = "http://www.sat.gob.mx/implocal")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ImpuestosLocales {
 
     @XmlElements({

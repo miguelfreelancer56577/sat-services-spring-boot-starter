@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 
 /**
  * <p>Clase Java para anonymous complex type.
@@ -43,6 +45,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "TimbreFiscalDigital", namespace = "http://www.sat.gob.mx/TimbreFiscalDigital")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class TimbreFiscalDigital {
 
     @XmlAttribute(name = "version", required = true)

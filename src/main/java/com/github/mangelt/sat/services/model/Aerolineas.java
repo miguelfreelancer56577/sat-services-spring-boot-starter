@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 
 /**
  * <p>Clase Java para anonymous complex type.
@@ -42,6 +44,7 @@ import javax.xml.bind.annotation.XmlType;
     "otrosCargos"
 })
 @XmlRootElement(name = "Aerolineas", namespace = "http://www.sat.gob.mx/aerolineas")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Aerolineas {
 
     @XmlElement(name = "OtrosCargos", namespace = "http://www.sat.gob.mx/aerolineas", required = true)

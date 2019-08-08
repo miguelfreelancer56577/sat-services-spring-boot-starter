@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 
 /**
  * <p>Clase Java para anonymous complex type.
@@ -39,6 +41,7 @@ import javax.xml.bind.annotation.XmlValue;
     "value"
 })
 @XmlRootElement(name = "Retencion")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Retencion {
 
     @XmlValue

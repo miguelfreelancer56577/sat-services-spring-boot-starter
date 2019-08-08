@@ -10,11 +10,14 @@ package com.github.mangelt.sat.services.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 /**
@@ -41,6 +44,7 @@ import javax.xml.bind.annotation.XmlType;
     "concepto"
 })
 @XmlRootElement(name = "Conceptos")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Conceptos {
 
     @XmlElement(name = "Concepto")

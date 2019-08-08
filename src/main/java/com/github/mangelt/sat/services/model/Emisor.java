@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 
 /**
  * <p>Clase Java para anonymous complex type.
@@ -46,6 +48,7 @@ import javax.xml.bind.annotation.XmlType;
     "regimenFiscal"
 })
 @XmlRootElement(name = "Emisor")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Emisor {
 
     @XmlElement(name = "DomicilioFiscal", required = true)
