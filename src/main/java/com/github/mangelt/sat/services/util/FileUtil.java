@@ -21,7 +21,6 @@ import reactor.core.publisher.Mono;
 
 import com.github.mangelt.sat.services.exception.FileUtilException;
 
-@Component
 @Slf4j
 public class FileUtil {
 
