@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 
 /**
@@ -75,6 +76,7 @@ import lombok.Setter;
 })
 @XmlRootElement(name = "Comprobante")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@ToString
 public class Comprobante {
 
 	@Getter
