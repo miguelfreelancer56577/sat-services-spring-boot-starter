@@ -52,9 +52,6 @@ public class CosmosConfiguration{
 
     @Bean("containerLink")
     protected String containerLink() {
-    	if(ConfigConstant.defultProperty.equals(this.databaseName) || ConfigConstant.defultProperty.equals(this.containerName)){
-    		return null;
-    	}
     	return "dbs/" + databaseName + "/colls/" + containerName;
     }
 	

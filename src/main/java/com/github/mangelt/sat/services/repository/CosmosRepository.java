@@ -11,6 +11,7 @@ import com.microsoft.azure.cosmosdb.Document;
 import com.microsoft.azure.cosmosdb.FeedOptions;
 import com.microsoft.azure.cosmosdb.FeedResponse;
 import com.microsoft.azure.cosmosdb.ResourceResponse;
+import com.microsoft.azure.cosmosdb.SqlQuerySpec;
 import com.microsoft.azure.cosmosdb.rx.AsyncDocumentClient;
 
 import hu.akarnokd.rxjava.interop.RxJavaInterop;
@@ -88,6 +89,17 @@ public abstract class CosmosRepository <T,I>{
 		})
 				.flatMap(this::mapToObject)
 				.singleOrEmpty();
+	}
+	
+	public Document getCount(String fileName){
+		String query = String.format("SELECT value count(1) from c where c.partitionKey != \"999999999\" and c.status =\"Completed\" and c.fileName IN (\"%s\")", fileName);
+		SqlQuerySpec sqlQuerySpec = new SqlQuerySpec(query);
+		rx.Observable<FeedResponse<Document>> documentQueryObservable = this.client.queryDocuments(this.containerLink, sqlQuerySpec, this.feedOptions);
+		Flux<FeedResponse<Document>> trans = this.transformFeedResponse(documentQueryObservable);
+		FeedResponse<Document> rs = trans.blockFirst();
+		List<Document> docs = rs.getResults();
+		Document doc = docs.get(0);
+		return doc;
 	}
 
 	public Flux<T> getAll(){
